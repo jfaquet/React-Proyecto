@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import * as API from "../services/launches";
-import { Heading} from '@chakra-ui/react'
+import { Heading, Box} from '@chakra-ui/react'
 import { LaunchItem} from '../components/LaunchItem'
+import {BeatLoader } from 'react-spinners'
 
 export function LaunchList() {
 
@@ -15,7 +16,7 @@ export function LaunchList() {
     return (
         <>
             <Heading as='h1' size="lg" m={4}> SpaceX launches</Heading>
-            {launches.length === 0 ? (<div>Loading ....</div>) : (
+            {launches.length === 0 ? (<Box p={10}><BeatLoader  size = {50} color="black"/></Box>) : (
                 <section>
                 {launches.map(launch => (
                     <LaunchItem key={launch.flight_number} {...launch}></LaunchItem>

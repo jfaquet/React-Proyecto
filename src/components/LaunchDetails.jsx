@@ -3,6 +3,7 @@ import * as API from "../services/launches";
 import { useState, useEffect } from "react";
 import { Box, Flex, Spacer, Tag, Text, Icon } from "@chakra-ui/react";
 import { SiWikipedia, SiYoutube } from "react-icons/si";
+import {BeatLoader } from 'react-spinners'
 
 
 export function LaunchDetails() {
@@ -16,10 +17,9 @@ export function LaunchDetails() {
             .catch(err => console.log(err));
     }, [launchId])
 
-    console.log(launch.links?.wikipedia)
     return (
         <Box bg="gray.100" p={4} m={4} borderRadius="lg">
-            {!launch ? (<div>Loading...</div>) : (
+            {!launch ? (<div><BeatLoader/></div>) : (
                 <>
                     <Flex>
                         <Text fontSize="2xl">
