@@ -10,7 +10,7 @@ export async function getAllLaunches(){
     }   
 }
 
-export async function getLaunchByFlightNumber(flightNumber){
+export async function getLaunchByFligthNumber(flightNumber){
 
     try{
         const response = await fetch(`${API_URL}/launches/${flightNumber}`);
